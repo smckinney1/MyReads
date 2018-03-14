@@ -5,6 +5,7 @@ import Search from './Search'
 import CurrentlyReading from './CurrentlyReading'
 import WantToRead from './WantToRead'
 import FinishedReading from './FinishedReading'
+import Book from './Book.js'
 import './App.css'
 
 class BooksApp extends Component {
@@ -13,6 +14,7 @@ class BooksApp extends Component {
   }
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
+      debugger;
       this.setState({ books })
     })
   }
@@ -32,9 +34,9 @@ class BooksApp extends Component {
             </div>
             <div className="list-books-content">
               <div>
-                <CurrentlyReading />
+                {/* <CurrentlyReading />
                 <WantToRead />
-                <FinishedReading />
+                <FinishedReading /> */}
               </div>
             </div>
             <div className="open-search">

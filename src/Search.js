@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BookMoveOptions from './BookMoveOptions'
+import Book from './Book'
 
 class Search extends Component {
     render() {
@@ -28,16 +29,7 @@ class Search extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {books.map((book) => (
-                            <li key={book.id}>
-                                <div className="book">
-                                    <div className="book-top">
-                                        <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${book.imageLinks.thumbnail}` }}></div>
-                                        <BookMoveOptions shelf="none"/>
-                                    </div>
-                                    <div className="book-title">{book.title}</div>
-                                    <div className="book-authors">{book.authors}</div>
-                                </div>
-                            </li>
+                            <Book book={book} />
                         ))}
                     </ol>
                 </div>
