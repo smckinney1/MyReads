@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import BookMoveOptions from './BookMoveOptions'
 
 class Search extends Component {
     render() {
+        const books = this.props.books
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -24,7 +26,20 @@ class Search extends Component {
                     </div>
                 </div>
                 <div className="search-books-results">
-                    <ol className="books-grid"></ol>
+                    <ol className="books-grid">
+                        {books.map((book) => (
+                            <li key={book.id}>
+                                <div className="book">
+                                    <div className="book-top">
+                                        <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${book.imageLinks.thumbnail}` }}></div>
+                                        <BookMoveOptions />
+                                    </div>
+                                    <div className="book-title">{book.title}</div>
+                                    <div className="book-authors">{book.authors}</div>
+                                </div>
+                            </li>
+                        ))}
+                    </ol>
                 </div>
             </div>
         )
